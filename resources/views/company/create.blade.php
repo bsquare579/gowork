@@ -20,7 +20,7 @@
 
         <h2>Add Bussiness</h2>
 
-        <form action="{{ url('/company')}}" method="post">
+        <form action="{{ url('/company')}}" method="post" autocomplete="off">
           {{ csrf_field() }}
           <div class="form-group">
             <label for="Name">Name</label>
@@ -32,15 +32,16 @@
           </div>
           <div class="form-group">
             <label for="address">Address</label>
+            <small class="text-muted"> <span>   (*</span>must be type manually and select form the dropdown)</small>
             <input type="address" class="form-control col-lg-9" id="address" spellcheck="false" autocomplete="off" placeholder="Enter Bussiness Address" name="address" required>
           </div>
           <!-- <div class="form-group">
             <label for="latitude">Latitude</label> -->
-            <input type="text" class="form-control col-lg-9" id="latitude" placeholder="Get Latitude" name="latitude" readonly required>
+            <input type="hidden" class="form-control col-lg-9" id="latitude" placeholder="Get Latitude" name="latitude" readonly required>
           <!-- </div>
           <div class="form-group">
             <label for="Longitude">Longitude</label> -->
-            <input type="text" class="form-control col-lg-9" id="longitude" placeholder="Get Longitude" name="longitude" readonly required>
+            <input type="hidden" class="form-control col-lg-9" id="longitude" placeholder="Get Longitude" name="longitude" readonly required>
           <!-- </div> -->
           
           <div class="form-group">

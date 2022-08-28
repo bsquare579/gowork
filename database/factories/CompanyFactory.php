@@ -19,8 +19,8 @@ class CompanyFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->Email(),
             'address' => $this->faker->Address(),
-            'latitude' => $this->faker->Latitude(),
-            'longitude' => $this->faker->Longitude(),
+            'latitude' => $this->faker->latitude(),
+            'longitude' => $this->faker->longitude(),
             'phone' => $this->faker->phoneNumber(),
             'created_at' => now(),
         ];

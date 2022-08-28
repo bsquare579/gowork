@@ -98,7 +98,7 @@
                         @endguest
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#!" style="background-color:red; color: #fff;">{{ __('Search Workers') }}</a>
+                            <a class="nav-link" href="#" style="background-color:red; color: #fff;">{{ __('Search Workers') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -106,8 +106,8 @@
         </nav>
         <!-- Displaying currlat as current location latitude, and currlng as current location longitude -->
   <form action="/company" method="GET" id="getbus" name="getbus">
-  <input type="text" class="form-control col-lg-9" id="user-lat" placeholder="Get Latitude" name="user-lat" value="" readonly>
-  <input type="text" class="form-control col-lg-9" id="user-long" placeholder="Get Longitude" name="user-long" value="" readonly>
+  <input type="hidden" class="form-control col-lg-9" id="user-lat" placeholder="Get Latitude" name="user-lat" value="" readonly>
+  <input type="hidden" class="form-control col-lg-9" id="user-long" placeholder="Get Longitude" name="user-long" value="" readonly>
   
   </form>
         <main class="py-4">

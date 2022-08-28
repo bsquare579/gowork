@@ -16,7 +16,7 @@ class CompanySeeder extends Seeder
     {
         //
         Company::factory()
-            ->count(15)
+            ->count(14)
             ->create();
     }
 }

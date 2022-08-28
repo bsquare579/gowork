@@ -25,12 +25,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/busreg', function(){
     return view('busreg');
 });
+Route::get('/welcome', function(){
+    return view('welcome');
+});
 
-
+// Company routes for customers
+Route::get('/welcome', [App\Http\Controllers\CompanyController::class, 'index']);
 Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index']);
-Route::get('/create', [App\Http\Controllers\CompanyController::class, 'create']);
+Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create']);
 Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store']);
 Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show']);
 Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update']);
 Route::get('/company/{id}', [App\Http\Controllers\CompanyController::class, 'destroy']);
+Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display']); //for display company information
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search']);
+

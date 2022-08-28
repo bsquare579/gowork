@@ -53,7 +53,7 @@
           </div>
 
           <br/>
-          <button type="submit" class="btn btn-primary">Submit</button>&ensp;<a href="/create"><button type="button" class="btn btn-primary"> Register New Bussiness</button></a>
+          <button type="submit" class="btn btn-primary">Submit</button>&ensp;<a href="/company/create"><button type="button" class="btn btn-primary"> Register New Bussiness</button></a>
         </form>
         @endforeach
   </div>
