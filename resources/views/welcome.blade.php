@@ -20,13 +20,14 @@
                 <div class="row">
                     <!-- starting...... -->
                     @foreach($company as $company)
-                    <div class="col-md-6 col-xs-4 col-sm-6">
+                    <div class="col-md-6 col-xs-6 col-sm-6">
                         
                         <div class="card-body">
                         <div class="card" style="width: 18rem; ">
                             <div class="card-body">
                                 <h4 class="card-title">{{$company->name}}</h4>
                                 <p class="card-text">{{ $company->address}}</p>
+                                <p class="card-text">{{ $company->phone }}</p>
                                 <div class="text-center">
                                     <a href="/company/show/{{ $company->id}}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-end">GO</a>
                                 </div>
@@ -56,6 +57,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $featured->name }}</h5>
                                 <p class="card-text">{{ $featured->address }}</p>
+                                <p class="card-text">{{ $featured->phone }}</p>
                                 <div class="text-center">
                                     <a href="/company/show/{{ $featured->id}}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-right">GO</a>
                                 </div>

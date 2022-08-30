@@ -16,6 +16,7 @@ class CompanyController extends Controller
 
         $lat = $request->query('user-lat');
         $lng = $request->query('user-long');
+        
         return DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies ORDER BY RAND() DESC");
        
         
