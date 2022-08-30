@@ -4,14 +4,21 @@
         @foreach($company as $company)
         
        
-        {{ $company->name}}</br>
-        {{ $company->email}}</br>
-        {{ $company->address}}
-        <p class="user-lat">{{ $company->latitude }}</p>
-        <p class="user-long">{{ $company->longitude}}</p>
-  
+        <p>{{ $company->name}}</p></br>
+        <p>{{ $company->email}}</p></br>
+        <p>{{ $company->address}}</p></br>
+        <p class="user-lat" hidden>{{ $company->latitude }}</p>
+        <p class="user-long" hidden>{{ $company->longitude}}</p>
+        <p><strong> {{ $company->phone}}</strong></p>
+        <ul class="list-group">
+        <li class="list-group-item"><p><a href="http://maps.google.com/?q={{ $company->latitude }},{{ $company->longitude}}"><i class="fa fa-map-marker"></i></p></li>
+        <li class="list-group-item"><p><a href="http://www.google.com/search?q={{ $company->phone }}"><i class="fa fa-whatsapp"></i></a></p></li>
+        <li class="list-group-item"><p><a href="tel://{{ $company->phone }}"><i class="fa fa-phone"></i></a></p></li>
+        </ul>
+</br>
+
         <span class="km"></span> k.m Away</br>
-        {{ $company->phone}}
+        
 
         @endforeach
 </div>

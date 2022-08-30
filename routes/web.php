@@ -30,9 +30,10 @@ Route::get('/welcome', function(){
 });
 
 // Company routes for customers
+
 Route::get('/welcome', [App\Http\Controllers\CompanyController::class, 'index']);
 Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index']);
-Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create']);
+Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create'])->middleware('auth');
 Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store']);
 Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show']);
 Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update']);
