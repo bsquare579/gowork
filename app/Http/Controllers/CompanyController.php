@@ -12,22 +12,28 @@ class CompanyController extends Controller
     //
 
 
-    public function gethot(){
+    public function gethot(Request $request){
 
-        
-        return  DB::select("SELECT * FROM companies");
+        $lat = $request->query('user-lat');
+        $lng = $request->query('user-long');
+        return DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies ORDER BY RAND() DESC");
+       
         
 
     }
     public function index(Company $company, Request $request){
 
 
-        $lat = session()->get('lat');
-        $lng = session()->get('lng');
+        // $lat = 6.4520192;
+        // $lng = 3.4111488;
+
+        $lat = $request->query('user-lat');
+        $lng = $request->query('user-long');
        
-        $company = DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('+ [$lat] +' - latitude)) / 2) * sin((RADIANS('+ [$lat] +' - latitude)) / 2) + sin((RADIANS('+ [$lng] +' - longitude)) / 2) * sin((RADIANS('+ [$lng] +' - longitude)) / 2) * cos(latitude) * cos('+ [$lat] +'))), sqrt(1 - (sin((RADIANS('+ [$lat] +' - latitude)) / 2) * sin((RADIANS('+ [$lat] +' - latitude)) / 2) + sin((RADIANS('+ [$lng] +' - longitude)) / 2) * sin((RADIANS('+ [$lng] +' - longitude)) / 2) * cos(latitude) * cos('+ [$lat] +'))))) * 6371),1) AS distance FROM companies");
         
-        $featured = $this->gethot();
+        $company = DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies");
+        
+        $featured = $this->gethot($request);
         return view('welcome', compact('company', 'featured'));
     }
 

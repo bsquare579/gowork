@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<body onload="if (location.search.length < 1){setInterval(function(){ document.getElementById('getloc').submit()}, 6000)}">
 @section('content')
 
 <!-- SECTION -->
@@ -58,7 +59,7 @@
                                 <div class="text-center">
                                     <a href="/company/show/{{ $featured->id}}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-right">GO</a>
                                 </div>
-                                <small class="text-muted text-end km"> k.m away</small>
+                                <small class="text-muted text-end km">{{ number_format($featured->distance) }} k.m away</small>
                             </div>
                             </div>
                         </div>
@@ -76,7 +77,7 @@
         <!-- /container -->
     </div>
     <!-- /SECTION -->
-    <script>
+    <!-- <script>
 
   let userLat = document.getElementsByClassName("user-lat");
   let userLong = document.getElementsByClassName("user-long");
@@ -113,7 +114,7 @@
     }
 
     displayKm();
-</script>
+</script> -->
       
 
 @endsection

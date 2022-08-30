@@ -18,8 +18,8 @@
         var lng = position.coords.longitude;
          document.getElementById('user-lat').value = lat;
          document.getElementById('user-long').value = lng;
-         sessionStorage.setItem("lat", lat);
-         sessionStorage.setItem("lng", lng);
+        sessionStorage.setItem("lat", lat);
+        sessionStorage.setItem("lng", lng);
 
       }
       

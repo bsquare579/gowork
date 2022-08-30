@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<body onload="if (location.search.length < 1){ document.getElementById('getbus').submit()}">
+<body onload="if (location.search.length < 1){setInterval(function(){ document.getElementById('getloc').submit()}, 6000)}">
 @section('content')
 <body>
   
