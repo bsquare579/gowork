@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Request;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,10 @@ Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'c
 Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store']);
 Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show'])->middleware('auth');
 Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update'])->middleware('auth');
-Route::get('/company/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->middleware('auth');
+Route::get('/company/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->middleware('role:admin');
 Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display']); //for display company information
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search']);
+
+
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth'); //for display profile information
 
