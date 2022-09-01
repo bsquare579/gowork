@@ -35,9 +35,9 @@ Route::get('/welcome', [App\Http\Controllers\CompanyController::class, 'index'])
 Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index']);
 Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create'])->middleware('auth');
 Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store']);
-Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show']);
-Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update']);
-Route::get('/company/{id}', [App\Http\Controllers\CompanyController::class, 'destroy']);
+Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show'])->middleware('auth');
+Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update'])->middleware('auth');
+Route::get('/company/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->middleware('auth');
 Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display']); //for display company information
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search']);
 
