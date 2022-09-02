@@ -128,8 +128,3 @@ class CompanyController extends Controller
     }
     
 }
-
-
-//
-
-// Having distance < "'+distance+'" 

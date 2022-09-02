@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Request;
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\CompanyController;
+
 
 /*
 |--------------------------------------------------------------------------
