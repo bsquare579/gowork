@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -17,7 +18,7 @@ class CompanyController extends Controller
         $lat = $request->query('user-lat');
         $lng = $request->query('user-long');
         
-        return DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies ORDER BY RAND() DESC");
+        return DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies ORDER BY RAND() LIMIT 6");
        
         
 
@@ -37,7 +38,7 @@ class CompanyController extends Controller
 
        
         
-        $company = DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies");
+        $company = DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies LIMIT 6");
         
         $featured = $this->gethot($request);
         return view('welcome', compact('company', 'featured'));
@@ -50,16 +51,16 @@ class CompanyController extends Controller
 
     public function store(Request $request){
         //Validate
-        $company = Company::firstOrCreate()->all;
-        $request->validate([
-            'name' => 'required',
-             'email' => 'required',
-             'address' => 'required',
-             'latitude' => 'required',
-             'longitude' => 'required',
-             'phone' => 'required',
-            
-        ]);
+
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $address = $request->input('address');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $phone = $request->input('phone');
+        $created_by = $request->input('created_by');
+        
         Company::create($request->all());
         Session::flash('message', 'Company created successfully!');
         Session::flash('alert-class', 'Success'); 

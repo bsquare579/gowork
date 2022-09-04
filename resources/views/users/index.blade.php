@@ -8,11 +8,20 @@
     </h1>
 
     <h2>
-    E-mail: {{ Auth::user()->email }}    
+    E-mail: {{ Auth::user()->email }}    </br>
+    
+    Status: {{  Auth::user()->status === 0 ? 'Not Verified' : 'Verified'}}
     </h2>
-    <h3 id="lat">
+    <p> <a href="{{ url('company/create')}}">Create Business</a></p>
 
-    </h3>
+
+<!-- <ul class="list-group list-group-horizontal">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+</ul> -->
+
+
     <script>
         function display(){
           let  lat = sessionStorage.getItem('lat');

@@ -43,11 +43,12 @@
             <label for="Longitude">Longitude</label> -->
             <input type="hidden" class="form-control col-lg-9" id="longitude" placeholder="Get Longitude" name="longitude" readonly required>
           <!-- </div> -->
-          
-          <div class="form-group">
+           <div class="form-group">
             <label for="phone">Phone Number</label>
             <input type="text"  maxlength="11" class="form-control col-lg-9" id="phone" placeholder="Enter Your Phone No" name="phone" required>
           </div>
+          <input type="hidden" class="form-control col-lg-9" id="created_by" name="created_by" value="{{ Auth::user()->id}}" readonly required>
+         
 
           <br/>
           <button type="submit" class="btn btn-primary">Submit</button>&ensp;<a href="/company"><button type="button" class="btn btn-primary"> View Businesses</button></a>

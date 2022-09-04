@@ -27,7 +27,7 @@
 </head>
 <body>
 
- <div class="container-fluid py-3 px-lg-5 d-none d-lg-block">
+ <!-- <div class="container-fluid py-3 px-lg-5 d-none d-lg-block">
         <div class="row">
             <div class="col-md-6 text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
@@ -72,10 +72,10 @@
                     <ul class="navbar-nav me-auto">
                         
                         <li>
-                        <!-- <nav class="navbar navbar-light">
+                        <nav class="navbar navbar-light">
                           <div class="container-fluid">
                             
-                          //Search button
+                         
                           <form class="d-flex">
                               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                               <button class="btn" type="submit"><i class="fa fa-search"></i></button>
@@ -83,7 +83,7 @@
 
 
                           </div>
-                        </nav> -->
+                        </nav>
                         </li>
 
                     </ul>
