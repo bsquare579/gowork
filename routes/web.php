@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');
 
 Route::get('/busreg', function(){
     return view('busreg');
@@ -44,4 +44,8 @@ Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 's
 
 
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth'); //for display profile information
+
+// Admin routes
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->middleware('auth'); //
 
