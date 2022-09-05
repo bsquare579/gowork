@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+Route::get('/user/company/{id}', [App\Http\Controllers\UserController::class, 'show']);
 
 Route::get('/busreg', function(){
     return view('busreg');

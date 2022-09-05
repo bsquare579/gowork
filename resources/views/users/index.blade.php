@@ -12,25 +12,44 @@
     
     Status: {{  Auth::user()->status === 0 ? 'Not Verified' : 'Verified'}}
     </h2>
-    <p> <a href="{{ url('company/create')}}">Create Business</a></p>
+    <p>MY ACCOUNT</p>
+    <div class="text-end">
+      <h5>
+        <a href="{{ url('user/company/create')}}">Create Business</a>
+      </h5>
+    </div>
 
-
-<!-- <ul class="list-group list-group-horizontal">
-  <li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-</ul> -->
-
-
-    <script>
-        function display(){
-          let  lat = sessionStorage.getItem('lat');
-          let  lng = sessionStorage.getItem('lng');
-          document.getElementById('lat').value = lat;
-        }
-    </script>
-
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach ($company as $company)
+          <tr>
+            <th scope="row"></th>
+            <td>{{ $company->name }}</td>
+            <td>{{ $company->email }}</td>
+            <td>{{ $company->address }}</td>
+            <td>{{ $company->phone }}</td>
+            <td>{{ $company->status === 0 ? 'Pending' : 'Approved' }}</td>
+            <td>
+              <a href="user/company/{{$company->id}}"><i class="fa fa-edit"></i></a>
+            </td>
+          </tr>
+        @endforeach
+        </tbody>
+      </table>
+      <!-- for(i = 0; i < count($company); i++) -->
     
+
 </div>
 
 

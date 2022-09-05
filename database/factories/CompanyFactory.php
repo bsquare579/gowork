@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CompanyFactory extends Factory
@@ -22,6 +23,7 @@ class CompanyFactory extends Factory
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
             'phone' => $this->faker->phoneNumber(),
+            'created_by' => User::factory(),
             'created_at' => now(),
         ];
     }

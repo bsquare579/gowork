@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Database\Seeders\UserSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         if(Auth::check()){
-            return view('users.index');
+
+            $id = Auth::id();
+            $user = DB::select("SELECT * FROM companies WHERE created_by = '$id' ");
+            return view('users.index', compact('user'));
         }else{
             return redirect()->back();
         }
