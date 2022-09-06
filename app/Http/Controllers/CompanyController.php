@@ -11,37 +11,10 @@ use Illuminate\Support\Facades\Session;
 class CompanyController extends Controller
 {
     //
-
-
-    public function gethot(Request $request){
-
-        $lat = $request->query('user-lat');
-        $lng = $request->query('user-long');
-        
-        return DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies ORDER BY RAND() LIMIT 6");
-       
-        
-
-    }
     public function index(Company $company, Request $request){
 
-
-        // $lat = 6.4520192;
-        // $lng = 3.4111488;
-
-        $lat = $request->query('user-lat');
-        $lng = $request->query('user-long');
-        // $lat = $request->sessionStorage->get('lat');
-        // $lng = $request->sessionStorage->get('lng');
-        // $lat = 0;
-        // $lng = 0;
-
-       
-        
-        $company = DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))), sqrt(1 - (sin((RADIANS('$lat' - latitude)) / 2) * sin((RADIANS('$lat' - latitude)) / 2) + sin((RADIANS('$lng' - longitude)) / 2) * sin((RADIANS('$lng' - longitude)) / 2) * cos(latitude) * cos('$lat'))))) * 6371),1) AS distance FROM companies LIMIT 6");
-        
-        $featured = $this->gethot($request);
-        return view('welcome', compact('company', 'featured'));
+        $company = Company::all();
+        return view('company.index', compact('company'));
     }
 
     public function create(){
@@ -121,11 +94,5 @@ class CompanyController extends Controller
         return View::make('company.edit', compact('company'));
     }
 
-    public function search(Request $request){
-
-        $latitude = $request->input('user-lat');
-        $longitude = $request->input('user-long');
-        $company = DB::select("SELECT *, ROUND(((2 * atan2(sqrt((sin((RADIANS('+ [user-lat] +' - lat)) / 2) * sin((RADIANS('+ [user-lat] +' - lat)) / 2) + sin((RADIANS('+ [user-long] +' - lng)) / 2) * sin((RADIANS('+ [user-long] +' - lng)) / 2) * cos(lat) * cos('+ [user-lat] +'))), sqrt(1 - (sin((RADIANS('+ [user-lat] +' - lat)) / 2) * sin((RADIANS('+ [user-lat] +' - lat)) / 2) + sin((RADIANS('+ [user-long] +' - lng)) / 2) * sin((RADIANS('+ [user-long] +' - lng)) / 2) * cos(lat) * cos('+ [user-lat] +'))))) * 6371),1) AS distance FROM companies");
-    }
-    
+   
 }

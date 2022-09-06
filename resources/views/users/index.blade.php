@@ -12,7 +12,7 @@
     
     Status: {{  Auth::user()->status === 0 ? 'Not Verified' : 'Verified'}}
     </h2>
-    <p>MY ACCOUNT</p>
+    <h2 class="text-center">MY BUSINESSES</h2>
     <div class="text-end">
       <h5>
         <a href="{{ url('user/company/create')}}">Create Business</a>
@@ -34,7 +34,7 @@
         <tbody>
         @foreach ($company as $company)
           <tr>
-            <th scope="row"></th>
+            <th scope="row">{{$loop->iteration}}</th>
             <td>{{ $company->name }}</td>
             <td>{{ $company->email }}</td>
             <td>{{ $company->address }}</td>
@@ -47,7 +47,6 @@
         @endforeach
         </tbody>
       </table>
-      <!-- for(i = 0; i < count($company); i++) -->
     
 
 </div>

@@ -27,13 +27,13 @@
 </head>
 <body>
 
- <!-- <div class="container-fluid py-3 px-lg-5 d-none d-lg-block">
+<div class="container-fluid py-3 px-lg-5 d-none d-lg-block">
         <div class="row">
             <div class="col-md-6 text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-body pr-3" href="tel://"><i class="fa fa-phone-alt mr-2"></i> +234 807 805 0144</a>
                     <span class="text-body"> &nbsp; &nbsp; |</span>
-                    <a class="text-body px-3 " href=""><i class="fa fa-envelope mr-2"></i> info@example.com</a>
+                    <a class="text-body px-3 " href=""><i class="fa fa-envelope mr-2"></i> info@intra.ng</a>
                 </div>
             </div>
             <div class="col-md-6 text-end text-lg-right">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
@@ -76,8 +76,8 @@
                           <div class="container-fluid">
                             
                          
-                          <form class="d-flex">
-                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <form class="d-flex" method="GET" action="/search">
+                              <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search Bussiness" aria-label="Search">
                               <button class="btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
 
@@ -90,10 +90,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="/company">{{ __('Company') }}</a>
+                            <a class="nav-link" href="/welcome">{{ __('Home') }}</a>
                         </li>
+                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -137,7 +138,7 @@
             </div>
         </nav>
         <!-- Displaying currlat as current location latitude, and currlng as current location longitude -->
-  <form action="/company" method="GET" id="getloc" name="getloc">
+  <form action="/welcome" method="GET" id="getloc" name="getloc">
   <input type="hidden" class="form-control col-lg-9" id="user-lat" placeholder="Get Latitude" name="user-lat" value="" readonly>
   <input type="hidden" class="form-control col-lg-9" id="user-long" placeholder="Get Longitude" name="user-long" value="" readonly>
   
@@ -146,6 +147,23 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript">
+        $('#search').on('keyup', function() {
+            $value=$(this).val();
+            $.ajax({
+                type: "GET",
+                url: '{{URL::to('search')}}',
+                data: {'search': $value},
+                success: function(data) {
+                    $('tbody').html(data);
+            });
+        }
+    </script>
+    <script type="text/javascript">
+    $.ajaxSetup({headers: {'csrftoken': '{{
+        csrf_token() }}'}});
+
+    <script>
 </body>
     {{View::make('footer')}}
 </html>
