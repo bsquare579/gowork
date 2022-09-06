@@ -147,7 +147,11 @@
             @yield('content')
         </main>
     </div>
+<<<<<<< HEAD
     <!-- <script type="text/javascript">
+=======
+    <script type="text/javascript">
+>>>>>>> be34ed447e76b609235cbc4cc5ac78a6cbedbd89
         $('#search').on('keyup', function() {
             $value=$(this).val();
             $.ajax({
@@ -163,7 +167,11 @@
     $.ajaxSetup({headers: {'csrftoken': '{{
         csrf_token() }}'}});
 
+<<<<<<< HEAD
     <script> -->
+=======
+    <script>
+>>>>>>> be34ed447e76b609235cbc4cc5ac78a6cbedbd89
 </body>
     {{View::make('footer')}}
 </html>
