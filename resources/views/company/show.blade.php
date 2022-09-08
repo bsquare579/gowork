@@ -20,7 +20,33 @@
         <span class="km"></span> k.m Away</br>
         
 
-        @endforeach
+        
+</div>
+<div class="mapouter">
+  <div class="gmap_canvas">
+    <iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $company->latitude }},{{ $company->longitude}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+    </iframe>
+      <a href="https://123movies-to.org">
+      </a>
+      <br>
+      <style>.mapouter{
+        position:relative;
+        text-align:right;
+        height:300px;
+        width:300px;
+        }
+        </style>
+      <a href="https://www.embedgooglemap.net">
+      </a>
+      <style>
+      .gmap_canvas {
+        overflow:hidden;
+        background:none!important;
+        height:200px;
+        width:200px;}
+      </style>
+      @endforeach
+  </div>
 </div>
         
 

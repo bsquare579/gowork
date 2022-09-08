@@ -76,7 +76,8 @@
                           <div class="container-fluid">
                             
                          
-                          <form class="d-flex" method="GET" action="/search">
+                          <form class="d-flex" method="GET" action="{{ url('/search')}}">
+                              {{ csrf_field() }}
                               <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search Bussiness" aria-label="Search">
                               <button class="btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
@@ -92,7 +93,7 @@
                     <ul class="navbar-nav ms-auto">
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="/welcome">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{ route('welcome')}}">{{ __('Home') }}</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -111,7 +112,7 @@
 
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/profile" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('profile')}}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Welcome {{ Auth::user()->name }}
                                 </a>
 
@@ -138,7 +139,7 @@
             </div>
         </nav>
         <!-- Displaying currlat as current location latitude, and currlng as current location longitude -->
-  <form action="/welcome" method="GET" id="getloc" name="getloc">
+  <form action="{{ route('welcome')}}" method="GET" id="getloc" name="getloc">
   <input type="hidden" class="form-control col-lg-9" id="user-lat" placeholder="Get Latitude" name="user-lat" value="" readonly>
   <input type="hidden" class="form-control col-lg-9" id="user-long" placeholder="Get Longitude" name="user-long" value="" readonly>
   

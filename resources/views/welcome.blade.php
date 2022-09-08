@@ -59,7 +59,7 @@
                                 <p class="card-text">{{ $featured->address }}</p>
                                 <p class="card-text">{{ $featured->phone }}</p>
                                 <div class="text-center">
-                                    <a href="/company/show/{{ $featured->id}}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-right">GO</a>
+                                    <a href="{{ route('company.show',[$featured->id]) }}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-right">GO</a>
                                 </div>
                                 <small class="text-muted text-end km">{{ number_format($featured->distance) }} k.m away</small>
                             </div>

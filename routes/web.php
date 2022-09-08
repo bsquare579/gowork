@@ -23,27 +23,27 @@ Auth::routes();
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/search', [App\Http\Controllers\HomeController::class, 'search']);
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 
 // Company routes for admin
 
-Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index']);
-Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create'])->middleware('auth');
-Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store']);
-Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show'])->middleware('auth');
+Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create'])->middleware('auth')->name('company.create');
+Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store'])->name('company')->name('company.store');
+Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show'])->middleware('auth')->name('company.edit');
 Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update'])->middleware('auth');
 Route::get('/company/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->middleware('role:admin');
-Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display']); //for display company information
+Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display'])->name('company.show'); //for display company information
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search']);
 
 // User routes for 
 
-Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth'); //for display profile information
-Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user')->middleware('auth');
-Route::get('/user/company/{id}', [App\Http\Controllers\UserController::class, 'show'])->middleware('auth');
-Route::get('/user/company/create', [App\Http\Controllers\UserController::class, 'store'])->middleware('auth');
+Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('profile'); //for display profile information
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user')->middleware('auth'); //  
+Route::get('/user/company/{id}', [App\Http\Controllers\UserController::class, 'show'])->middleware('auth')->name('user.company');
+Route::get('/user/company/create', [App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('user.company.create');
 Route::get('user/create', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth');
 
 
