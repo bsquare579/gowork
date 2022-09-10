@@ -20,7 +20,7 @@
 
         <h2>Add Bussiness</h2>
 
-        <form action="{{ url('/user/company')}}" method="post" autocomplete="off">
+        <form action="{{ url('/user/company/create')}}" method="post" autocomplete="off">
           {{ csrf_field() }}
           <div class="form-group">
             <label for="Name">Name</label>

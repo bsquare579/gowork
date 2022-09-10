@@ -21,7 +21,7 @@
      </div>
 
 
-<a href="/create" ><button class="btn btn-primary" style="float: right">ADD NEW COMPANY</button></a>
+<a href="{{ route('company.create')}}" ><button class="btn btn-primary" style="float: right">ADD NEW COMPANY</button></a>
 <br>
 <form action="/search" method="GET">
   <input type="text" name="name" id="name" placeholder="Search by name">
@@ -72,10 +72,9 @@
     <td>
         
       
-    <a class="btn btn-success edit" href="/company/edit/{{$company->id}}"><i class="fa-solid fa-edit"></i></a>
-    <a class="btn btn-primary" href="./status<%=data[i].id%>"><i class="fa-solid fa-cog"></i></a>
-    
-    <a class="btn btn-danger" href="/company/{{$company->id}}"  onclick="return confirm('Are you sure you want to delete the company')"><i class="fa-solid fa-trash"></i></a>
+    <a class="btn btn-success edit" href="{{ route('company.edit', [$company->id]) }}"><i class="fa-solid fa-edit"></i></a>
+    <a class="btn btn-primary" href="{{ route('company.status', [$company->id]) }}"><i class="fa-solid fa-cog"></i></a>
+    <a class="btn btn-danger" href="{{ route('company.delete', [$company->id]) }}""  onclick="return confirm('Are you sure you want to delete the company')"><i class="fa-solid fa-trash"></i></a>
   </form>
    </td>
   </tr>

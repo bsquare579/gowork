@@ -7,7 +7,7 @@
     <div class="card col-md-6">
       <div class="card-body">
       @if(Session('message'))
-<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" >
+      <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000" >
       <div class="toast-header">
         <strong class="me-auto">{{ Session::get('alert-class') }}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -51,7 +51,7 @@
          
 
           <br/>
-          <button type="submit" class="btn btn-primary">Submit</button>&ensp;<a href="/company"><button type="button" class="btn btn-primary"> View Businesses</button></a>
+          <button type="submit" class="btn btn-primary">Submit</button>&ensp;<a href="{{ route('company')}}"><button type="button" class="btn btn-primary"> View Businesses</button></a>
         </form>
   </div>
 </div>

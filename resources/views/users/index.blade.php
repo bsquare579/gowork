@@ -15,7 +15,7 @@
     <h2 class="text-center">MY BUSINESSES</h2>
     <div class="text-end">
       <h5>
-        <a href="{{ url('user/company/create')}}">Create Business</a>
+        <a href="{{ route('users.company.create')}}">Create Business</a>
       </h5>
     </div>
 
@@ -41,7 +41,7 @@
             <td>{{ $company->phone }}</td>
             <td>{{ $company->status === 0 ? 'Pending' : 'Approved' }}</td>
             <td>
-              <a href="user/company/{{$company->id}}"><i class="fa fa-edit"></i></a>
+              <a href="{{ route('user.company',[$company->id]) }}"><i class="fa fa-edit"></i></a>
             </td>
           </tr>
         @endforeach

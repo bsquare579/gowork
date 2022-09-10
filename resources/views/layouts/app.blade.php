@@ -76,7 +76,7 @@
                           <div class="container-fluid">
                             
                          
-                          <form class="d-flex" method="GET" action="{{ url('/search')}}">
+                          <form class="d-flex" method="GET" action="{{ route('search')}}">
                               {{ csrf_field() }}
                               <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search Bussiness" aria-label="Search">
                               <button class="btn" type="submit"><i class="fa fa-search"></i></button>

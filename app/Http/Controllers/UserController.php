@@ -18,8 +18,8 @@ class UserController extends Controller
         if(Auth::check()){
 
             $user_id = Auth::id();
-            $company = Company::all();
-            //$company = DB::select("SELECT * FROM companies WHERE created_by = '$user_id'");
+            //$company = Company::all();
+            $company = DB::select("SELECT * FROM companies WHERE created_by = '$user_id'");
             return view('users.index', compact('company'));
         }else{
             

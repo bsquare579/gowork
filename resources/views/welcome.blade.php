@@ -22,20 +22,25 @@
                     @foreach($company as $company)
                     <div class="col-md-6 col-xs-6 col-sm-6">
                         
-                        <div class="card-body">
+                        
                         <div class="card" style="width: 18rem; ">
-                            <div class="card-body">
-                                <h4 class="card-title">{{$company->name}}</h4>
-                                <p class="card-text">{{ $company->address}}</p>
-                                <p class="card-text">{{ $company->phone }}</p>
-                                <div class="text-center">
-                                    <a href="/company/show/{{ $company->id}}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-end">GO</a>
+                            <img src="{{ config('$company->image', 'img/bg-banner.jpg') }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h4 class="card-title"><i class="fas fa-home"></i>&nbsp;{{$company->name}}</h4>
+                                    <p class="card-text"><i class='fas fa-map-marker-alt'></i>&nbsp; {{ $company->address}}</p>
+                                    <p class="card-text"><i class='fas fa-phone'></i>&nbsp;{{ $company->phone }}</p>
+                                    <div class="row">
+                                        <div class="col">
+                                                <a href="{{ route('company.show',[$company->id]) }}" class="btn btn-success"><i class="fa-solid fa-circle-arrow-right"></i></a>
+                                            
+                                                <i class='fas fa-route'></i> &nbsp; {{ number_format($company->distance) }} k.m away
+                                        
+                                        </div>
+                                    </div>
                                 </div>
-                                <small class="text-muted text-end">{{ number_format($company->distance) }} k.m away</small>
-                            </div>
-                            </div>
                         </div>
                     </div>
+</br>
                     @endforeach
                   
                     
@@ -52,17 +57,18 @@
                     @foreach($featured as $featured)
                     <div class="col-md-6 col-xs-6 col-sm-6">
                         
-                        <div class="card-body">
                         <div class="card" style="width: 18rem;">
+                            <img src="{{ config('$featured->image', 'img/bg-banner.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $featured->name }}</h5>
-                                <p class="card-text">{{ $featured->address }}</p>
-                                <p class="card-text">{{ $featured->phone }}</p>
-                                <div class="text-center">
-                                    <a href="{{ route('company.show',[$featured->id]) }}" class="btn btn-success">View</a>                    <a href="#" class="btn btn-success text-right">GO</a>
-                                </div>
-                                <small class="text-muted text-end km">{{ number_format($featured->distance) }} k.m away</small>
-                            </div>
+                                <h5 class="card-title"><i class="fas fa-home"></i>&nbsp;{{ $featured->name }}</h5>
+                                <p class="card-text"><i class='fas fa-map-marker-alt'></i>&nbsp; {{ $featured->address }}</p>
+                                <p class="card-text"><i class='fas fa-phone'></i>&nbsp;{{ $featured->phone }}</p>
+                                <div class="row">
+                                        <div class="col">
+                                            <a href="{{ route('company.show',[$featured->id]) }}" class="btn btn-success"><i class="fa-solid fa-circle-arrow-right"></i></a>
+                                        <i class='fas fa-route'></i> &nbsp; {{ number_format($featured->distance) }} k.m away
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>

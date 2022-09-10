@@ -88,11 +88,16 @@ class CompanyController extends Controller
         //
         $company = Company::find($id);
         if(is_null($company)){
-            return Redirect::route('company.index');
+            return redirect('company.index');
         }
 
-        return View::make('company.edit', compact('company'));
+        return view('company.edit', compact('company'));
     }
 
+    public function status($id){
+
+        $company = Company::find($id);
+        return view('company.status', compact('company'));
+    }
    
 }
