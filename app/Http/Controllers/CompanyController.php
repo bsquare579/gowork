@@ -45,7 +45,7 @@ class CompanyController extends Controller
 
         $company = DB::select('select * from companies where id = ?', [$id]);
 
-        return view('company.edit', compact('company', $company));
+        return view('company.edit', compact('company'));
     }
 
 
@@ -53,7 +53,7 @@ class CompanyController extends Controller
 
         $company = DB::select('select * from companies where id = ?', [$id]);
 
-        return view('company.show', compact('company', $company));
+        return view('company.show', compact('company'));
 
     }
 
