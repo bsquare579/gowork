@@ -33,13 +33,35 @@
         </thead>
         <tbody>
         @foreach ($company as $company)
+        <?php
+          if($company->status == '0'){
+            $color = 'btn btn-outline-warning';
+
+          }
+          else if($company->status == '1'){
+            $color = 'btn btn-outline-success';
+          }else {
+            $color = 'btn btn-outline-danger';
+          }
+        ?>
+        <?php
+            if($company->status == '0'){
+              $company->status = 'Not Verified';
+
+            }
+            else if($company->status == '1' ){
+              $company->status = 'Verified';
+            }else {
+              $company->status = 'Blocked';
+            }
+        ?>
           <tr>
             <th scope="row">{{$loop->iteration}}</th>
             <td>{{ $company->name }}</td>
             <td>{{ $company->email }}</td>
             <td>{{ $company->address }}</td>
             <td>{{ $company->phone }}</td>
-            <td>{{ $company->status === 0 ? 'Pending' : 'Approved' }}</td>
+            <td class="{{$color}}">{{ $company->status }}</td>
             <td>
               <a href="{{ route('user.company',[$company->id]) }}"><i class="fa fa-edit"></i></a>
             </td>

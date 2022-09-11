@@ -20,16 +20,15 @@
   <div class="alert container-md alert-dismissible">
      </div>
 
-
-<a href="{{ route('company.create')}}" ><button class="btn btn-primary" style="float: right">ADD NEW COMPANY</button></a>
-<br>
-<form action="/search" method="GET">
-  <input type="text" name="name" id="name" placeholder="Search by name">
-  <input type="email" name="email" id="email" placeholder="Search by email">
-  <input type="text" name="phone" id="phone" placeholder="Search by phone">
-  <input type="date" name="date" id="date" placeholder="Search by date"> 
-  <input type="submit">
-</form>
+    <a href="{{ route('company.create')}}" ><button class="btn btn-primary" style="float: right">ADD NEW COMPANY</button></a>
+    <br>
+    <form action="{{url('/search')}}" method="GET">
+      <input type="text" name="name" id="name" placeholder="Search by name">
+      <input type="email" name="email" id="email" placeholder="Search by email">
+      <input type="text" name="phone" id="phone" placeholder="Search by phone">
+      <input type="date" name="date" id="date" placeholder="Search by date"> 
+      <input type="submit">
+    </form>
 
 
   <table class="table">
@@ -53,28 +52,40 @@
     @foreach($company as $company)
     <?php
     if($company->status == '0'){
+      $color = 'btn btn-warning';
+
+    }
+    else if($company->status == '1' ){
+      $color = 'btn btn-success';
+    }else {
+      $color = 'btn btn-danger';
+    }
+    ?>
+    <?php
+    if($company->status == '0'){
       $company->status = 'Not Verified';
 
     }
     else if($company->status == '1' ){
       $company->status = 'Verified';
     }else {
-      $company->status = 'Undefined';
+      $company->status = 'Blocked';
     }
     ?>
+     
   <tr>
     <td scope="row">{{ $loop->iteration }}</td>
     <td>{{ $company->name }}</td>
     <td>{{ $company->email}}</td>
     <td>{{ $company->address}}</td>
     <td>{{ $company->phone}}</td> <td>{{ $company->created_at }}</td>
-    <td>{{ $company->status }}</td>
+    <td><button type="button" class="{{ $color}}">{{ $company->status }}</button></td>
     <td>
         
       
     <a class="btn btn-success edit" href="{{ route('company.edit', [$company->id]) }}"><i class="fa-solid fa-edit"></i></a>
     <a class="btn btn-primary" href="{{ route('company.status', [$company->id]) }}"><i class="fa-solid fa-cog"></i></a>
-    <a class="btn btn-danger" href="{{ route('company.delete', [$company->id]) }}""  onclick="return confirm('Are you sure you want to delete the company')"><i class="fa-solid fa-trash"></i></a>
+    <a class="btn btn-danger" href="{{ route('company.delete', [$company->id]) }}" onclick="return confirm('Are you sure you want to delete the company')"><i class="fa-solid fa-trash"></i></a>
   </form>
    </td>
   </tr>

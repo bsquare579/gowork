@@ -38,6 +38,7 @@ Route::get('/company/delete/{id}', [App\Http\Controllers\CompanyController::clas
 Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display'])->name('company.show'); //for display company information
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search']);
 Route::get('/company/status/{id}', [App\Http\Controllers\CompanyController::class, 'status'])->middleware('auth')->name('company.status');
+Route::put('/updatestatus/{id}', [App\Http\Controllers\CompanyController::class, 'updatestatus'])->middleware('auth');
 
 // User routes for 
 
