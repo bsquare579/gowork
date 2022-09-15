@@ -15,6 +15,7 @@ class CompanyFactory extends Factory
      */
     public function definition()
     {
+        $status = $this->faker->randomElement([0, 1]);
         return [
             //
             'name' => $this->faker->name(),
@@ -24,6 +25,7 @@ class CompanyFactory extends Factory
             'longitude' => $this->faker->longitude(),
             'phone' => $this->faker->phoneNumber(),
             'created_by' => User::factory(),
+            'status' => $status,
             'created_at' => now(),
         ];
     }

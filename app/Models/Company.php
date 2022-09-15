@@ -13,7 +13,7 @@ class Company extends Model
     protected $fillable = ['name', 'email', 'address', 'latitude', 'longitude', 'phone', 'created_by'];
 
     public function user(){
-        return $this->belongsTo(User::class, $this->foreignKey['user'], 'id');
+        return $this->belongsTo(User::class);
     }
 }
 

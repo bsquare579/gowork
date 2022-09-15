@@ -2,7 +2,12 @@
         @section('content')
 <div class="container-fluid">
         @foreach($company as $company)
-        
+<div class="mapouter">
+  <div class="gmap_canvas">
+    <iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $company->latitude }},{{ $company->longitude}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="5" scrolling="no" marginheight="0" marginwidth="0">
+    </iframe>
+  </div>
+</div>
        
         <p>{{ $company->name}}</p></br>
         <p>{{ $company->email}}</p></br>
@@ -14,41 +19,16 @@
         <li class="list-group-item"><p><a href="http://maps.google.com/?q={{ $company->latitude }},{{ $company->longitude}}"><i class="fa fa-map-marker"></i></p></li>
         <li class="list-group-item"><p><a href="http://www.google.com/search?q={{ $company->phone }}"><i class="fa fa-whatsapp"></i></a></p></li>
         <li class="list-group-item"><p><a href="tel://{{ $company->phone }}"><i class="fa fa-phone"></i></a></p></li>
-        </ul>
-</br>
+        </ul></br>
 
         <span class="km"></span> k.m Away</br>
         
 
         
 </div>
-<div class="mapouter">
-  <div class="gmap_canvas">
-    <iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $company->latitude }},{{ $company->longitude}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-    </iframe>
-      <a href="https://123movies-to.org">
-      </a>
-      <br>
-      <style>.mapouter{
-        position:relative;
-        text-align:right;
-        height:300px;
-        width:300px;
-        }
-        </style>
-      <a href="https://www.embedgooglemap.net">
-      </a>
-      <style>
-      .gmap_canvas {
-        overflow:hidden;
-        background:none!important;
-        height:200px;
-        width:200px;}
-      </style>
-      @endforeach
-  </div>
-</div>
+
         
+      @endforeach
 
 <script>
 
