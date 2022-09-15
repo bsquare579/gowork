@@ -47,4 +47,18 @@ class UserController extends Controller
 
         return view('users.company.create');
     }
+
+
+    public function store(Request $request){
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $address = $request->input('address');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $phone = $request->input('phone');
+        $created_by = $request->input('created_by');
+        Company::create($request->all());
+        return redirect('user');
+    }
 }
