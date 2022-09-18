@@ -10,10 +10,10 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <!-- JavaScript Bundle with Popper -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
-    <script src="https://kit.fontawesome.com/d61c5c0e1d.js" crossorigin="anonymous"></script>
+   
         <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/location.js') }}" defer></script>
@@ -23,6 +23,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+
+    
+    <link href="{{ asset('fontawesome/css/all.css')}}" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -76,7 +80,7 @@
                           <div class="container-fluid">
                             
                          
-                          <form class="d-flex" method="GET" action="{{ route('search')}}">
+                          <form class="d-flex" method="GET" action="{{ route('searcher')}}">
                               {{ csrf_field() }}
                               <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search Bussiness" aria-label="Search">
                               <button class="btn" type="submit"><i class="fa fa-search"></i></button>
@@ -92,8 +96,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         
-                        <li class="nav-item">
+                    <li class="nav-item">
                             <a class="nav-link" href="{{ route('welcome')}}">{{ __('Home') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('company')}}">{{ __('Company') }}</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

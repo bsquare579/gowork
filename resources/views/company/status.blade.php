@@ -9,7 +9,7 @@
         @endif
 @foreach ($company as $row)
         <h1 style="text-align: center;">{{ $row->name }}</h1>
-        <form action="{{ url('/updatestatus', [$row->id])}}" method="POST">
+        <form action="{{ url('/status', [$row->id])}}" method="POST">
           @csrf
           @method('PUT')
 

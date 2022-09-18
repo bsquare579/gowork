@@ -94,19 +94,7 @@ class CompanyController extends Controller
         return view('company.edit', compact('company'));
     }
 
-    public function status($id){
-
-        $company = DB::select("select * FROM companies WHERE id = '$id'"); 
-        return view('company.status', compact('company'));
-    }
-
-    public function updatestatus(Request $request, $id){
-        
-        $status = $request->get('status');
-        $company = DB::select("UPDATE companies SET status = '$status' WHERE id = '$id'");
-        
-        return redirect('/company');
-
-    }
+ 
+  
    
 }

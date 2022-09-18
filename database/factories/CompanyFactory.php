@@ -23,6 +23,7 @@ class CompanyFactory extends Factory
             'address' => $this->faker->Address(),
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
+            //'image' => $this->faker->image('img', 300, 300, null, false),
             'phone' => $this->faker->phoneNumber(),
             'created_by' => User::factory(),
             'status' => $status,

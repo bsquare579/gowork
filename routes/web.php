@@ -26,6 +26,13 @@ Route::get('/', function () {
 Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
+// Search route
+Route::get('searcher', [App\Http\Controllers\SearchController::class, 'searcher'])->name('searcher');
+
+// Status route
+Route::get('/status/{id}', [App\Http\Controllers\StatusController::class, 'show'])->middleware('auth')->name('status');
+Route::put('/status/{id}', [App\Http\Controllers\StatusController::class, 'update'])->middleware('auth')->name('status.update');
+
 
 // Company routes for admin
 
@@ -37,10 +44,8 @@ Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'upd
 Route::get('/company/delete/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->middleware('auth')->name('company.delete');
 Route::get('/company/show/{id}', [App\Http\Controllers\CompanyController::class, 'display'])->name('company.show'); //for display company information
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search']);
-Route::get('/company/status/{id}', [App\Http\Controllers\CompanyController::class, 'status'])->middleware('auth')->name('company.status');
-Route::put('/updatestatus/{id}', [App\Http\Controllers\CompanyController::class, 'updatestatus'])->middleware('auth');
 
-// User routes for 
+// User routes
 
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('profile'); //for display profile information
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user')->middleware('auth'); //  

@@ -33,7 +33,7 @@
                                         <div class="col">
                                                 <a href="{{ route('company.show',[$company->id]) }}" class="btn btn-success"><i class="fa-solid fa-circle-arrow-right"></i></a>
                                             
-                                                <i class='fas fa-route'></i> &nbsp; {{ number_format($company->distance) }} k.m away
+                                                <i class='fa fa-route'></i> &nbsp; {{ number_format($company->distance) }} k.m away
                                         
                                         </div>
                                     </div>

@@ -84,7 +84,7 @@
         
       
     <a class="btn btn-success edit" href="{{ route('company.edit', [$company->id]) }}"><i class="fa-solid fa-edit"></i></a>
-    <a class="btn btn-primary" href="{{ route('company.status', [$company->id]) }}"><i class="fa-solid fa-cog"></i></a>
+    <a class="btn btn-primary" href="{{ route('status', [$company->id]) }}"><i class="fa-solid fa-cog"></i></a>
     <a class="btn btn-danger" href="{{ route('company.delete', [$company->id]) }}" onclick="return confirm('Are you sure you want to delete the company')"><i class="fa-solid fa-trash"></i></a>
   </form>
    </td>
