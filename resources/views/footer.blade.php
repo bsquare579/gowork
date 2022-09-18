@@ -9,7 +9,7 @@
         style="background-color: #3b5998;"
         href="#!"
         role="button"
-        ><i class="fa fa-facebook-f"></i
+        ><i class="fa-brands fa-facebook-f"></i
       ></a>
 
       <!-- Twitter -->
@@ -18,7 +18,7 @@
         style="background-color: #55acee;"
         href="#!"
         role="button"
-        ><i class="fa fa-twitter"></i
+        ><i class="fa-brands fa-twitter"></i
       ></a>
 
       <!-- Google -->
@@ -27,7 +27,7 @@
         style="background-color: #dd4b39;"
         href="#!"
         role="button"
-        ><i class="fa fa-google"></i
+        ><i class="fa-brands fa-google"></i
       ></a>
 
       <!-- Instagram -->
@@ -36,7 +36,7 @@
         style="background-color: #ac2bac;"
         href="#!"
         role="button"
-        ><i class="fa fa-instagram"></i
+        ><i class="fa-brands fa-instagram"></i
       ></a>
 
       <!-- Linkedin -->
@@ -45,7 +45,7 @@
         style="background-color: #0082ca;"
         href="#!"
         role="button"
-        ><i class="fa fa-linkedin"></i
+        ><i class="fa-brands fa-linkedin"></i
       ></a>
       <!-- Github -->
       <a
@@ -53,7 +53,7 @@
         style="background-color: #333333;"
         href="#!"
         role="button"
-        ><i class="fa fa-github"></i
+        ><i class="fa-brands fa-github"></i
       ></a>
     </section>
     <!-- Section: Social media -->
@@ -70,4 +70,4 @@
 </footer>
 
     <!-- Back to Top
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a> -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa-brands fa-angle-double-up"></i></a> -->

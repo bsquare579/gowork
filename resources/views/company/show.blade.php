@@ -4,7 +4,7 @@
         @foreach($company as $company)
 <div class="mapouter">
   <div class="gmap_canvas">
-    <iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $company->latitude }},{{ $company->longitude}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="5" scrolling="no" marginheight="0" marginwidth="0">
+    <iframe width="445" height="359" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $company->latitude }},{{ $company->longitude}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="5" scrolling="no" marginheight="0" marginwidth="0">
     </iframe>
   </div>
 </div>
@@ -15,11 +15,13 @@
         <p class="user-lat" hidden>{{ $company->latitude }}</p>
         <p class="user-long" hidden>{{ $company->longitude}}</p>
         <p><strong> {{ $company->phone}}</strong></p>
-        <ul class="list-group">
-        <li class="list-group-item"><p><a href="http://maps.google.com/?q={{ $company->latitude }},{{ $company->longitude}}"><i class="fa fa-map-marker"></i></p></li>
-        <li class="list-group-item"><p><a href="http://www.google.com/search?q={{ $company->phone }}"><i class="fa fa-whatsapp"></i></a></p></li>
-        <li class="list-group-item"><p><a href="tel://{{ $company->phone }}"><i class="fa fa-phone"></i></a></p></li>
-        </ul></br>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item"><a href="http://maps.google.com/?q={{ $company->latitude }},{{ $company->longitude}}"><i class="fa fa-map-marker"></i></a></li>
+            <li class="list-group-item"><a href="tel://{{ $company->phone }}"><i class="fa fa-phone"></i></a></li>
+            <li class="list-group-item"><a href="https://api.whatsapp.com/send?phone={{ $company->phone }}&text=Hello"><i class="fa-brands fa-whatsapp"></i></a></li>
+          </div>
+        </ul>
+      </br>
 
         <span class="km"></span> k.m Away</br>
         

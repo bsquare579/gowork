@@ -31,13 +31,13 @@
 </head>
 <body>
 
-<div class="container-fluid py-3 px-lg-5 d-none d-lg-block">
+<div class="container py-3 px-lg-5 d-none d-lg-block">
         <div class="row">
             <div class="col-md-6 text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
                     <a class="text-body pr-3" href="tel://"><i class="fa fa-phone-alt mr-2"></i> +234 807 805 0144</a>
                     <span class="text-body"> &nbsp; &nbsp; |</span>
-                    <a class="text-body px-3 " href=""><i class="fa fa-envelope mr-2"></i> info@intra.ng</a>
+                    <a class="text-body px-3 " href="mailto:info@intra.ng"><i class="fa fa-envelope mr-2"></i> info@intra.ng</a>
                 </div>
             </div>
             <div class="col-md-6 text-end text-lg-right">
@@ -83,7 +83,7 @@
                           <form class="d-flex" method="GET" action="{{ route('searcher')}}">
                               {{ csrf_field() }}
                               <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search Bussiness" aria-label="Search">
-                              <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                              <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
                             </form>
 
 

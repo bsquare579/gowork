@@ -23,7 +23,7 @@
             
           </div>
           <br/>
-          <i class="fa fa-archive"></i><input type="submit" value="SUBMIT">
+          <button type="submit" class="btn btn-primary">Submit <i class="fa fa-archive"></i></button>
         </form>
   </div>
   @endforeach

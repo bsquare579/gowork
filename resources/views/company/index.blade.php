@@ -26,8 +26,8 @@
       <input type="text" name="name" id="name" placeholder="Search by name">
       <input type="email" name="email" id="email" placeholder="Search by email">
       <input type="text" name="phone" id="phone" placeholder="Search by phone">
-      <input type="date" name="date" id="date" placeholder="Search by date"> 
-      <input type="submit">
+      <input type="date" name="date" id="date" placeholder="Search by date">
+      <button type="submit" class="btn btn-primary">Submit <i class="fa fa-archive"></i></button>
     </form>
 
 
