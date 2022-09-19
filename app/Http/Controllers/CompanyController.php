@@ -95,6 +95,13 @@ class CompanyController extends Controller
     }
 
  
+    public function search(Request $request){
+        $name = $request->query->get('name');
+        $email = $request->query->get('email');
+        $phone = $request->query->get('phone');
+        $company = DB::select("SELECT * FROM companies WHERE name LIKE '%$name%' AND email LIKE '%$email%' AND phone LIKE '%$phone%'");
+        return view('company.index', compact('company'));
+    }
   
    
 }

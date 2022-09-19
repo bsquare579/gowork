@@ -22,7 +22,7 @@
 
     <a href="{{ route('company.create')}}" ><button class="btn btn-primary" style="float: right">ADD NEW COMPANY</button></a>
     <br>
-    <form action="{{url('/search')}}" method="GET">
+    <form action="{{url('/company/search')}}" method="GET">
       <input type="text" name="name" id="name" placeholder="Search by name">
       <input type="email" name="email" id="email" placeholder="Search by email">
       <input type="text" name="phone" id="phone" placeholder="Search by phone">
