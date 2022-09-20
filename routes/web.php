@@ -27,7 +27,7 @@ Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->n
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 // Search route
-Route::get('searcher', [App\Http\Controllers\SearchController::class, 'searcher'])->name('searcher');
+Route::get('/searcher', [App\Http\Controllers\SearchController::class, 'searcher'])->name('searcher');
 
 // Status route
 Route::get('/status/{id}', [App\Http\Controllers\StatusController::class, 'show'])->middleware('auth')->name('status');

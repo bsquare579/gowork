@@ -81,7 +81,6 @@
                             
                          
                           <form class="d-flex" method="GET" action="{{ route('searcher')}}">
-                              {{ csrf_field() }}
                               <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search Bussiness" aria-label="Search">
                               <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
                             </form>
