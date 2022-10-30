@@ -39,7 +39,7 @@ Route::put('/status/{id}', [App\Http\Controllers\StatusController::class, 'updat
 Route::get('/company', [App\Http\Controllers\CompanyController::class, 'index'])->middleware('auth')->name('company');
 Route::get('/company/create', [App\Http\Controllers\CompanyController::class, 'create'])->middleware('auth')->name('company.create');
 Route::post('/company', [App\Http\Controllers\CompanyController::class, 'store'])->name('company')->name('company.store');
-Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show'])->middleware('auth')->name('company.edit');
+Route::get('/company/edit/{id}', [App\Http\Controllers\CompanyController::class, 'show'])->middleware('auth')->name('company.show');
 Route::put('/company/{id}', [App\Http\Controllers\CompanyController::class, 'update'])->middleware('auth');
 Route::get('/company/delete/{id}', [App\Http\Controllers\CompanyController::class, 'destroy'])->middleware('auth')->name('company.delete');
 Route::get('/company/search', [App\Http\Controllers\CompanyController::class, 'search'])->middleware('auth')->name('company.search'); //for search company information
