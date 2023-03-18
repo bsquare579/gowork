@@ -24,9 +24,6 @@
       </br>
 
         <span class="km"></span> k.m Away</br>
-        
-
-        
 </div>
 
         
